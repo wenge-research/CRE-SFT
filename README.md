@@ -121,17 +121,18 @@ Training settings:
 
 Our model was evaluated across 9 public benchmarks with various `reasoning_effort` values, compared with two models of the same size: [DeepSeek-distill-Qwen-32B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-32B) (based on Qwen2.5-32B-Base) and [OpenThinker2-32B](https://huggingface.co/open-thoughts/OpenThinker2-32B) (based on Qwen2.5-32B-Instruct).
 
-| **Model**                  | **AIME2024** | **AIME2025-I** | **MATH500** | **GPQA-Diamond** | **OlympiadBench** | **LiveMathBench** | **AMC23** | **LiveCodeBench<br>[20240801-20250501]** | **HumanEval** | **Average** |
-|:--------------------------:|:------------:|:--------------:|:-----------:|:----------------:|:-----------------:|:-----------------:|:---------:|:------------------------------------:|:-------------:|:-----------:|
-| **DeepSeek-distill-Qwen-32B**     | 66.9         | 50.4     | 92.7        | 55.6             | 60.9              | 75.8              | 87.1      | 50.9                                | 83.8         | 70.44       |
-| **OpenThinker2-32B<br>**              | 67.1         | **55.4** | **94.3**    | 58.1             | 63.9              | 83.6              | 85.5      | 50.8                                | 86.4         | 72.03       |
-| **Ours<br>(reasoning_effort=256**)   | 51.0      | 45.4     | 91.9        | 56.9             | 61.4              | 77.0              | 81.6      | 51.5                                | 86.3         | 69.36       |
-| **Ours<br>(reasoning_effort=512**)   | 42.7      | 37.9     | 91.5        | 56.1             | 59.7              | 77.4              | 74.4      | 50.9                                | 86.6         | 67.76       |
-| **Ours<br>(reasoning_effort=1024**)  | 62.9      | 46.3     | 93.3        | 58.0             | 63.1              | 80.9              | 87.1      | 51.3                                | 86.0         | 71.15       |
-| **Ours<br>(reasoning_effort=2048**)  | **67.5**  | 50.0     | 93.1        | **58.3**         | 63.7              | 80.9              | 88.9      | 51.3                                | 86.9         | 71.78       |
-| **Ours<br>(reasoning_effort=4096**)  | 65.6      | 52.1     | 92.9        | 57.8             | 64.2              | 82.3              | 88.6      | 52.2                                | 86.3         | 71.86       |
-| **Ours<br>(reasoning_effort=8192**)  | 66.3      | 52.9     | 93.6        | 57.8             | 64.3              | 80.9              | 87.1      | **52.4**                            | **88.0**     | 72.22       |
-| **Ours<br>(reasoning_effort=16384**) | 67.3      | 51.7     | 93.5        | 58.0             | **64.5**          | **84.0**          | **89.5**  | 51.7                                | 87.4         | **72.25**   |
+|               **Model**               | **Average** | **AIME2024** | **AIME2025-I** | **MATH500** | **GPQA-Diamond** | **OlympiadBench** | **LiveMathBench** | **AMC23** | **LiveCodeBench<br>\[20240801-20250501]** | **HumanEval** |
+| :-----------------------------------: | :---------: | :----------: | :------------: | :---------: | :--------------: | :---------------: | :---------------: | :-------: | :---------------------------------------: | :-----------: |
+|     **DeepSeek-distill-Qwen-32B**     |    70.44    |     66.9     |      50.4      |     92.7    |       55.6       |        60.9       |        75.8       |    87.1   |                    50.9                   |      83.8     |
+|        **OpenThinker2-32B<br>**       |    72.03    |     67.1     |    **55.4**    |   **94.3**  |       58.1       |        63.9       |        83.6       |    85.5   |                    50.8                   |      86.4     |
+|  **Ours<br>(reasoning\_effort=256**)  |    69.36    |     51.0     |      45.4      |     91.9    |       56.9       |        61.4       |        77.0       |    81.6   |                    51.5                   |      86.3     |
+|  **Ours<br>(reasoning\_effort=512**)  |    67.76    |     42.7     |      37.9      |     91.5    |       56.1       |        59.7       |        77.4       |    74.4   |                    50.9                   |      86.6     |
+|  **Ours<br>(reasoning\_effort=1024**) |    71.15    |     62.9     |      46.3      |     93.3    |       58.0       |        63.1       |        80.9       |    87.1   |                    51.3                   |      86.0     |
+|  **Ours<br>(reasoning\_effort=2048**) |    71.78    |   **67.5**   |      50.0      |     93.1    |     **58.3**     |        63.7       |        80.9       |    88.9   |                    51.3                   |      86.9     |
+|  **Ours<br>(reasoning\_effort=4096**) |    71.86    |     65.6     |      52.1      |     92.9    |       57.8       |        64.2       |        82.3       |    88.6   |                    52.2                   |      86.3     |
+|  **Ours<br>(reasoning\_effort=8192**) |    72.22    |     66.3     |      52.9      |     93.6    |       57.8       |        64.3       |        80.9       |    87.1   |                  **52.4**                 |    **88.0**   |
+| **Ours<br>(reasoning\_effort=16384**) |  **72.25**  |     67.3     |      51.7      |     93.5    |       58.0       |      **64.5**     |      **84.0**     |  **89.5** |                    51.7                   |      87.4     |
+
 
 The results indicate a **positive correlation between reasoning effort and performance**. As `reasoning_effort` increases, the model provides deeper, more accurate reasoning. The best performance (72.25 average) occurs at `reasoning_effort=16384`.
 
