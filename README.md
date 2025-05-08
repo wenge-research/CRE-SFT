@@ -148,7 +148,7 @@ While increased reasoning effort improves performance, the **marginal benefit de
 
 We sampled over 300 test cases with target reasoning lengths under 8k and plotted the target vs actual reasoning lengths. The majority of cases stayed within the allowed limit, verifying the model’s ability to **control reasoning length** via discrete prompt signals.
 
-## Limitations
+## ⚠️ Limitations
 
 * Reasoning granularity is coarse due to the use of power-of-two steps (e.g., 2k–4k, 4k–8k), which may lead to high variance in actual vs target lengths in mid ranges.
 * Despite successful length control at higher values, the model tends to generate reasoning even when `reasoning_effort=0`, likely due to insufficient non-reasoning samples in the training data.
